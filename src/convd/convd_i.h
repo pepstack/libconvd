@@ -59,6 +59,15 @@ typedef struct _conv_position_t
 } conv_position_t, *convpos_t;
 
 
+STATIC_INLINE int strcmp_caseign(const char *Astr, const char *Bstr)
+{
+    #ifdef _MSC_VER
+        return stricmp(Astr, Bstr);
+    #else
+        return strcasecmp(Astr, Bstr);
+    #endif
+}
+
 #ifdef    __cplusplus
 }
 #endif

@@ -682,7 +682,7 @@ size_t convd_conv_xmltext(convd_t cvd, conv_buf_t *input, conv_buf_t *output)
 
     int xmlheadlen = XML_text_parse_head(convbuf_mk(&inbuf, input->bufp, input->blen), &xmlhead);
 
-    if (stricmp(convd_fromcode(cvd), xmlhead.encoding)) {
+    if (strcmp_caseign(convd_fromcode(cvd), xmlhead.encoding)) {
         return CONVD_ERR_ICONV;
     }
 
