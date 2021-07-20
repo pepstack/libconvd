@@ -222,7 +222,7 @@ $(CONVD_STATIC_LIB).$(OSARCH): $(COBJS) $(MINGW_COBJS)
 $(CONVD_DYNAMIC_LIB).$(OSARCH): $(COBJS) $(MINGW_COBJS)
 	$(CC) $(CFLAGS) -shared \
 		-Wl,--soname=$(CONVD_DYNAMIC_LIB) \
-		-Wl,--rpath='$(PREFIX):$(PREFIX)/lib:$(PREFIX)/../lib:$(PREFIX)/../libs/lib' \
+		-Wl,--rpath='$(PREFIX):$(PREFIX)/lib:$(PREFIX)/libs:$(PREFIX)/libs/lib' \
 		-o $@ \
 		$^ \
 		$(LDFLAGS) \
