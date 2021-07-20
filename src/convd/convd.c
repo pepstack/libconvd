@@ -568,10 +568,12 @@ const char * convd_tocode(const convd_t cvd, CONVD_SUFFIX_MODE *suffix)
 
 int convd_config(const convd_t cvd, int request, void *argument)
 {
-    int ret;
+    int ret = -1;
+#if _LIBICONV_VERSION >= 0x0108
     refc_object_lock(cvd, 0);
     ret = iconvctl(cvd->cd, request, argument);
     refc_object_unlock(cvd);
+#endif
     return ret;
 }
 
